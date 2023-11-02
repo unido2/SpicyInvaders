@@ -24,7 +24,8 @@ void Ship::move()
 
     int y = shipy.top();
     shipy.moveTo(x, y);
-    qDebug() << "Shipy x: " << shipy.x();
+
+    //qDebug() << "Shipy x: " << shipy.x();
 }
 
 void Ship::setdX(int xx)

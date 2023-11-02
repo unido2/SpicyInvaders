@@ -9,7 +9,8 @@ Bullet::Bullet()
 {
     activated = destroyed = false;
     dy = 0;
-    x_ship = 0;
+    x_act_ship = 0;
+    y_act_ship = 0;
 
     img.load("D:\\my_project\\qt\\SpicyInvaders\\img\\bullet.png");
     if (img.isNull())
@@ -39,18 +40,31 @@ void Bullet::shoot()
 {
     if (activated) {
 
-        int x = x_ship + (GlobalVar::SHIP_WIDTH / 2) - 5;
-        int y = bully.y() - dy;
+        int x = x_act_ship + (GlobalVar::SHIP_WIDTH / 2) - 5; 
+        int y = bully.y() - dy; // move along Y coordintes
 
-        qDebug() << "x: " <<x<< " y: " << y;
+        //qDebug() << "x: " <<x<< " y: " << y;
 
         bully.moveTo(x, y);
+    }
+
+   else {
+        int x = bully.x() + dx; // leap to actual X Ship coodinate
+        int y = y_act_ship+GlobalVar::BULLET_SIZE;
+
+        bully.moveTo(x, y);
+
     }
 }
 
 void Bullet::setdY(int yy)
 {
     dy = yy;
+}
+
+void Bullet::setdX(int xx)
+{
+    dx = xx;
 }
 
 void Bullet::bornNewBullet()
@@ -98,7 +112,12 @@ void Bullet::setDestroyed(bool choice)
     destroyed = choice;
 }
 
-void Bullet::setXShip(int x)
+void Bullet::getActualShipY(int y)
 {
-    x_ship = x;
+    y_act_ship = y;
+}
+
+void Bullet::getActualShipX(int x)
+{
+    x_act_ship = x;
 }

@@ -15,7 +15,6 @@ public:
 
 	void reset();
 	void shoot();
-	void setdY(int);
 	void bornNewBullet();
 	
 
@@ -27,10 +26,14 @@ public:
 	bool isActivated();
 	bool isDestroyed();
 
+	void setdY(int);
+	void setdX(int);
 	void setActivated(bool);
 	void setDestroyed(bool);
-	void setXShip(int);
-	
+
+	void getActualShipX(int); //get actual X Ship coordinate to leap
+	void getActualShipY(int); //get actual Y Ship coordinate to leap
+
 
 private:
 	QImage img;
@@ -38,9 +41,10 @@ private:
 
 	bool activated;
 	bool destroyed;
-	int dy;
-	int x_ship;
-
+	int dy; // increment to move bullet Y axis
+	int dx; // increment to leap and move bullet to X axis of Ship
+	int x_act_ship; //actual X coordinate of Ship
+	int y_act_ship; //actual Y coordinate of Ship
 
 	//ship image is 40x26
 	//bullet size 10x10

@@ -1,3 +1,5 @@
-﻿  Ship.cpp
+﻿  moc SpicyInvaders.h
   SpicyInvaders.cpp
+  main.cpp
+  moc_SpicyInvaders.cpp
   SpicyInvaders.vcxproj -> D:\my_project\qt\SpicyInvaders\x64\Debug\SpicyInvaders.exe
